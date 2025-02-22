@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="/static/js/script.js"></script>
+
+  <!-- Add the transition CSS here -->
+  <style>
+    #sliding-image {
+      transition: opacity 1s ease-in-out;
+    }
+
+    #sliding-image.fade-out {
+      opacity: 0;
+    }
+  </style>
+</head>
+
+<body style="background-color: #EBF4F6;">
+  <!-- Navbar -->
+  <header class="flex justify-between items-center p-4  text-white" style="background-color: #071952;">
+    <div class="text-2xl font-bold">Hope.</div>
+    <nav class="hidden md:flex space-x-4">
+      <a href="#" class="hover:text-gray-300">Home</a>
+      <a href="/aboutus" class="hover:text-gray-300">About</a>
+      <a href="/gallery" class="hover:text-gray-300">Gallery</a>
+      <a href="/services" class="hover:text-gray-300">Services</a>
+      <a href="#" class="hover:text-gray-300">Contact</a>
+    </nav>
+    <button id="hamburger-btn" class="md:hidden focus:outline-none" onclick="toggleMenu()">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+      </svg>
+    </button>
+
+    <div id="mobile-menu" class="hidden absolute top-16 left-0 w-full bg-white shadow-md z-10">
+      <nav class="flex flex-col space-y-2 p-4"  style="color: #4A4A4A;">
+        <a href="#" class="block px-4 py-2 ">Home</a>
+        <a href="/aboutus" class="block px-4 py-2 hover:bg-gray-100">About</a>
+        <a href="/gallery" class="block px-4 py-2 hover:bg-gray-100">Gallery</a>
+        <a href="/services" class="block px-4 py-2 hover:bg-gray-100">Services</a>
+        <a href="#" class="block px-4 py-2 hover:bg-gray-100">Contact</a>
+      </nav>
+    </div>
+
+    <!-- Profile Icon with Dropdown -->
+    <div class="relative">
+      <button id="profile-btn" onclick="toggleDropdown()"
+        class="bg-gray-800 p-2 rounded-full focus:outline-none focus:ring-2 focus:ring-gray-300">
+        <!-- SVG for the user profile icon -->
+        <svg class="w-10 h-10 rounded-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="8" r="4"></circle>
+          <path d="M6 20c0-5 5-7 6-7s6 2 6 7"></path>
+        </svg>
+      </button>
+      <div id="profile-dropdown" class="hidden absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-10">
+        <ul class="py-2 text-gray-700">
+          <li id="user-display" class="block px-4 py-2 font-bold">
+            <!-- SVG for the user profile icon -->
+            <svg class="inline-block w-6 h-6 mr-2 text-gray-700" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="8" r="4"></circle>
+              <path d="M6 20c0-5 5-7 6-7s6 2 6 7"></path>
+            </svg>
+            Not logged in
+          </li>
+          <li>
+            <a href="/change-password" class="block px-4 py-2 hover:bg-gray-100">Settings</a>
+          </li>
+          <li>
+            <a href="/" class="block px-4 py-2 hover:bg-gray-100" onclick="logout()">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </header>
+
+  <!-- Hero Section -->
+  <section class="flex flex-col-reverse lg:flex-row items-center px-4 lg:px-20 py-10">
+    <div class="lg:w-1/2 text-center lg:text-left">
+      <h1 class=" text-3xl md:text-4xl font-extrabold tracking-tight" style="color: #071952;">
+        A small act of kindness can change a life.<br> Donate
+        <span id="typing-effect" style="color: #088395;"></span>
+      </h1>
+      <p class="mt-4 text-center text-lg md:text-base lg:text-justify tracking-tight " style="color: #071952;">
+        Imagine the smile on a child’s face who receives a pair of shoes for the first time or the relief of a
+        family who no longer has to worry about their next meal. These small acts of kindness ripple into
+        greater changes, uplifting individuals and communities alike.
+      </p>
+      <button class="mt-6  px-6 py-3 rounded-md font-bold" style="background-color: #37B7C3; color:#071952;">Self courier</button>
+      <button class="mt-6  px-6 py-3 rounded-md font-bold" style="background-color: #37B7C3; color:#071952;">Pickup/Drop</button>
+    </div>
+    <div class="lg:w-1/2 sha">
+      <img id="sliding-image" src="/static/img/1st.jpg" alt="Illustration"
+        class="w-full max-w-md mx-auto rounded-lg shadow-2xl h-80 object-cover">
+    </div>
+  </section>
+
+
+
+
+<!-- services  -->
+<h2 class="py-2 mb-6 text-3xl font-extrabold tracking-tight text-center  lg:mb-8 lg:text-4xl " style="color: #37B7C3;">Who are we?</h2>
+<h1 class="text-center p-2 lg:mx-20 lg:p-4 tracking-tight font-semibold" style="color: #071952;">At HOPE, we are dedicated to bringing hope and support to underprivileged children by providing essential items like clothes, footwear, and school accessories. Through our initiative Asha, we also empower women by promoting handmade bags and pouches, helping them achieve financial independence. Our platform enables generous donors to contribute through monetary donations, self-courier options, and pickup/drop services, ensuring every child gets the care they deserve. Together, we strive to make a meaningful impact, one donation at a time</h1>
+
+<div class="container mx-auto max-w-5xl flex gap-12 flex-wrap items-start justify-center md:justify-between ">
+  <div class="grid gap-4 justify-items-center text-center md:flex-1">
+      <div class=" rounded-full border-8  p-4 " style="border-color: #071952;">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="w-14 h-14">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z">
+              </path>
+          </svg>
+      </div>
+      <h3 class="text-3xl font-bold tracking-tight" style="color: #088395;">Safe</h3>
+      <p class="tracking-tight font-semibold" style="color:#071952;">Our products are secure and private out-of-the-box</p>
+  </div>
+  <div class="grid gap-4 justify-items-center text-center md:flex-1">
+      <div class=" rounded-full border-8 p-4 " style="border-color: #071952;">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="w-14 h-14">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"></path>
+          </svg>
+      </div>
+      <h3 class="text-3xl font-bold tracking-tight" style="color: #088395;">Efficient</h3>
+      <p class="tracking-tight font-semibold" style="color:#071952;">Feel good about your wallet and the environment</p>
+  </div>
+  <div class="grid gap-4 justify-items-center text-center md:flex-1">
+      <div class=" rounded-full border-8  p-4 " style="border-color: #071952;">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+              stroke="currentColor" class="w-14 h-14">
+              <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z">
+              </path>
+          </svg>
+
+      </div>
+      <h3 class="text-3xl font-bold tracking-tight" style="color: #088395;">Proven</h3>
+      <p class="tracking-tight font-semibold" style="color:#071952;">Leading the Smart Home world for 10 years</p>
+  </div>
+</div>
+
+
+
+
+  <!-- <section class="text-white body-font bg-black">
+    <div class="container px-5 py-24 mx-auto ">
+      <h2 class="sm:text-5xl text-4xl text-gray-700 font-medium mb-2 ">Every 10 seconds, a child dies from<br>
+        hunger-related causes.</h2>
+
+    </div>
+  </section> -->
+
+
+<!-- Start block -->
+<section >
+  
+  <div class="max-w-screen-xl px-4 py-8 mx-auto space-y-12 lg:space-y-20  lg:px-6">
+      <!-- Row -->
+      <h2 class="py-2 mb-6 text-3xl font-extrabold tracking-tight text-center  lg:mb-8 lg:text-4xl " style="color:#37B7C3">How we work?</h2>
+      <div class="items-center gap-8 lg:grid lg:grid-cols-2 xl:gap-16">
+       
+          <div class=" sm:text-lg" >
+              <h2 class="mb-4 text-2xl font-extrabold tracking-tight " style="color:#088395">Donate with Ease Using Our Simple Platform</h2>
+              <p class="mb-8 font-medium lg:text-lg text-justify text-lg" style="color: #071952;">We streamline the donation process to ensure fast, effective, and transparent support for underprivileged children. By leveraging innovative solutions, we eliminate barriers to giving, making it easier for donors to contribute and for beneficiaries to receive essential items seamlessly.</p>
+              <!-- List -->
+              <ul role="list" class="pt-8 space-y-5 border-t border-gray-200 my-7 dark:border-gray-700">
+                  <li class="flex space-x-3">
+                      <!-- Icon -->
+                      <svg class="flex-shrink-0 w-5 h-5 text-black dark:text-purple-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                      <span class="text-base font-medium leading-tight text-gray-900 dark:text-white">Seamless Donation Management</span>
+                  </li>
+                  <li class="flex space-x-3">
+                      <!-- Icon -->
+                      <svg class="flex-shrink-0 w-5 h-5 text-black dark:text-purple-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                      <span class="text-base font-medium leading-tight text-gray-900 dark:text-white">Efficient Resource Distribution</span>
+                  </li>
+                  <li class="flex space-x-3">
+                      <!-- Icon -->
+                      <svg class="flex-shrink-0 w-5 h-5 text-black dark:text-purple-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                      <span class="text-base font-medium leading-tight text-gray-900 dark:text-white">Transparent Engagement & Tracking</span>
+                  </li>
+              </ul>
+              <p class="mb-8 font-semibold lg:text-lg text-justify" style="color: #071952;">Make a Meaningful Impact Quickly – Without the Hassle of Traditional Donation Processes.
+
+
+
+
+
+
+              </p>
+          </div>
+          <img class="hidden w-full mb-4 rounded-lg lg:mb-0 lg:flex shadow-2xl" src="/static/img/home1.jpg" alt="dashboard feature image">
+      </div>
+      <!-- Row -->
+      <div class="items-center gap-8 lg:grid lg:grid-cols-2 xl:gap-16">
+          <img class="hidden w-full mb-4 rounded-lg lg:mb-0 lg:flex shadow-2xl" src="/static/img/home2.jpg" alt="feature image 2">
+          <div class="text-gray-500 sm:text-lg dark:text-gray-400">
+              <h2 class="mb-4 text-3xl font-extrabold tracking-tight " style="color: #088395;">Simplifying the Donation Experience</h2>
+              <p class="mb-8 font-medium lg:text-xl text-justify text-lg" style="color: #071952;">We make giving effortless and impactful by eliminating complexities and streamlining the donation process. Our platform ensures that every contribution reaches those in need quickly and efficiently.</p>
+              <!-- List -->
+              <ul role="list" class="pt-8 space-y-5 border-t border-gray-200 my-7 dark:border-gray-700">
+                  <li class="flex space-x-3">
+                      <!-- Icon -->
+                      <svg class="flex-shrink-0 w-5 h-5 text-black dark:text-purple-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                      <span class="text-base font-medium leading-tight text-gray-900 dark:text-white">Real-Time Impact Tracking</span>
+                  </li>
+                  <li class="flex space-x-3">
+                      <!-- Icon -->
+                      <svg class="flex-shrink-0 w-5 h-5 text-black dark:text-purple-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                      <span class="text-base font-medium leading-tight text-gray-900 dark:text-white">Flexible Contribution Methods</span>
+                  </li>
+                  <li class="flex space-x-3">
+                      <!-- Icon -->
+                      <svg class="flex-shrink-0 w-5 h-5 text-black dark:text-purple-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                      <span class="text-base font-medium leading-tight text-gray-900 dark:text-white">Automated Allocation System</span>
+                  </li>
+                  <li class="flex space-x-3">
+                      <!-- Icon -->
+                      <svg class="flex-shrink-0 w-5 h-5 text-black dark:text-purple-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                      <span class="text-base font-medium leading-tight text-gray-900 dark:text-white">Transparent Engagement</span>
+                  </li>
+                  <li class="flex space-x-3">
+                      <!-- Icon -->
+                      <svg class="flex-shrink-0 w-5 h-5 text-black dark:text-purple-400" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                      <span class="text-base font-medium leading-tight text-gray-900 dark:text-white">Fast and Hassle-Free Giving</span>
+                  </li>
+              </ul>
+              <p class="font-medium lg:text-xl text-justify" style="color: #071952;">Make a Difference Quickly – Without the Hassle of Traditional Donation Processes.</p>
+          </div>
+      </div>
+  </div>
+</section>
+<!-- End block -->
+
+<section class="py-6">
+    <div class="max-w-screen-xl px-4 pb-8 mx-auto lg:pb-24 lg:px-6 ">
+        <h2 class="mb-6 text-4xl font-extrabold tracking-tight text-center text-gray-900 lg:mb-8 lg:text-3xl dark:text-white" style="color: #37B7C3;">Frequently asked questions</h2>
+        <div class="max-w-screen-md mx-auto">
+            <div id="accordion-flush" data-accordion="collapse" data-active-classes="bg-white dark:bg-gray-900 text-gray-900 dark:text-white" data-inactive-classes="text-gray-500 dark:text-gray-400">
+                <h3 id="accordion-flush-heading-1">
+                    <button type="button" class="flex items-center justify-between w-full py-5 font-medium text-left " data-accordion-target="#accordion-flush-body-1" aria-expanded="true" aria-controls="accordion-flush-body-1">
+                        <span class="px-4 tracking-tight" style="color: #088395;">Can I donate used clothes and footwear?</span>
+                        <svg data-accordion-icon="" class="w-6 h-6 rotate-180 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                    </button>
+                </h3>
+                <div id="accordion-flush-body-1" class="" aria-labelledby="accordion-flush-heading-1">
+                    <div class="py-5 border-b bg-white" style="color: #071952;">
+                        <p class="mb-2 px-4 tracking-tight text-justify">Yes! We accept gently used clothes, footwear, school accessories, and blankets to help those in need. Please ensure that the items are in good condition, clean, and usable before donating. You can either self-courier your donations or opt for our pickup service.</p>
+                        
+                    </div>
+                </div>
+                <h3 id="accordion-flush-heading-2">
+                    <button type="button" class="flex items-center justify-between w-full py-5 font-medium text-left text-gray-500 border-b dark:text-gray-400" data-accordion-target="#accordion-flush-body-2" aria-expanded="false" aria-controls="accordion-flush-body-2">
+                        <span class="px-4" style="color: #088395;">How can I donate an education kit?</span>
+                        <svg data-accordion-icon="" class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                    </button>
+                </h3>
+                <div id="accordion-flush-body-2" class="hidden" aria-labelledby="accordion-flush-heading-2">
+                  <div class="py-5 border-b bg-white ">
+                    <p class="mb-2 px-4 tracking-tight text-justify" style="color: #071952;">You can donate an education kit containing 12 books, a compass box, a uniform, and a pair of shoes for ₹2500 per kit. Simply fill in your details, select the number of kits, and proceed to payment via Stripe.</p>
+                    
+                </div>
+                </div>
+                <h3 id="accordion-flush-heading-3">
+                    <button type="button" class="flex items-center justify-between w-full py-5 font-medium text-left text-gray-500 border-b border-gray-200 dark:border-gray-700 dark:text-gray-400" data-accordion-target="#accordion-flush-body-3" aria-expanded="false" aria-controls="accordion-flush-body-3">
+                        <span class="px-4 tracking-tight" style="color: #088395;">Can I donate money instead of items?</span>
+                        <svg data-accordion-icon="" class="w-6 h-6 shrink-0" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>
+                    </button>
+                </h3>
+                <div id="accordion-flush-body-3" class="hidden" aria-labelledby="accordion-flush-heading-3">
+                    <div class="py-5 border-b px-4 bg-white" style="color: #071952;">
+                        <p class="mb-2 tracking-tight text-justify">Yes! You can make a monetary donation through our secure Stripe payment gateway. Your funds will be used to procure essential items for underprivileged children..</p>
+                        
+                    </div>
+                </div>
+                
+             
+            </div> 
+        </div>               
+    </div>
+</section>
+<!-- End block -->
+
+
+<section class="py-40 mx-6 md:py-0 md:mx-4 overflow-hidden">
+  <div class="max-w-screen-xl 2xl:max-w-screen-3xl px-8 md:px-12 mx-auto h-svh flex flex-col justify-center">
+   <div class="flex flex-col sm:flex-row mx-auto">
+    <!--- Starts component --> <a href="#_"> <img src="https://images.unsplash.com/photo-1530035415911-95194de4ebcc?q=80&amp;w=2670&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="rounded-xl  rotate-6 hover:rotate-0 duration-500 hover:-translate-y-12 h-full w-full object-cover hover:scale-150 transform origin-bottom" alt="#_"> </a><a href="#_"> <img src="https://images.unsplash.com/photo-1487180144351-b8472da7d491?q=80&amp;w=2672&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D " class="rounded-xl  -rotate-12 hover:rotate-0 duration-500 hover:-translate-y-12 h-full w-full object-cover hover:scale-150 transform origin-bottom" alt="#_"> </a><a href="#_"> <img src="https://images.unsplash.com/photo-1586996292898-71f4036c4e07?q=80&amp;w=2670&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="rounded-xl  rotate-6 hover:rotate-0 duration-500 hover:-translate-y-12 h-full w-full object-cover hover:scale-150 transform origin-bottom" alt="#_"> </a><a href="#_"> <img src="https://images.unsplash.com/photo-1522775417749-29284fb89f43?q=80&amp;w=2574&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="rounded-xl  -rotate-12 hover:rotate-0 duration-500 hover:-translate-y-12 h-full w-full object-cover hover:scale-150 transform origin-bottom" alt="#_"> </a>
+    <!--- Ends component -->
+   </div> <!-- Starts links to tutorial -->
+   <div class="pointer-events-none fixed inset-x-0 bottom-0 sm:flex sm:justify-center sm:px-6 sm:pb-5 lg:px-8">
+    <div class="pointer-events-auto flex w-full max-w-md divide-x divide-neutral-200 rounded-lg bg-white shadow-lg ring-1 ring-black ring-opacity-5">
+     
+   </div> <!-- Ends links to tutorial -->
+  </div>
+ </section>
+
+
+ <div style="background-color: #071952;">
+  <div class="max-w-screen-lg px-4 sm:px-6 sm:grid md:grid-cols-4 sm:grid-cols-2 mx-auto text-center">
+      <div class="p-5">
+          <h3 class="font-bold text-xl tracking-tight" style="color: #088395;">Hope.</h3>
+      </div>
+      <div class="p-5">
+          <div class="text-sm uppercase  font-bold tracking-tight" style="color: #088395;">Resources</div>
+          <a class="my-3 block tracking-tight" href="/#" style="color: #088395;">Documentation <span class="text-xs p-1" style="color: #088395;"></span></a><a
+              class="my-3 block tracking-tight" href="/#" style="color: #088395;">Tutorials <span class="text-xs p-1" style="color: #088395;"></span></a><a
+              class="my-3 block tracking-tight" href="/#" style="color: #088395;">Support <span class=" text-xs p-1" style="color: #088395;">New</span></a>
+      </div>
+      <div class="p-5">
+          <div class="text-sm uppercase  font-bold" style="color: #088395;">Support</div>
+          <a class="my-3 block" href="/#" style="color: #088395;">Help Center <span class="text-teal-600 text-xs p-1"></span></a><a
+              class="my-3 block" href="/#" style="color: #088395;">Privacy Policy <span class="text-teal-600 text-xs p-1"></span></a><a
+              class="my-3 block" href="/#" style="color: #088395;">Conditions <span class="text-teal-600 text-xs p-1"></span></a>
+      </div>
+      <div class="p-5">
+          <div class="text-sm uppercase font-bold" style="color: #088395;">Contact us</div>
+          <a class="my-3 block" href="/#" style="color: #088395;">contact@Hope.com</a>
+          <button class="mt-6  px-6 py-3 rounded-md font-bold" style="background-color: #37B7C3; color:#071952;">Contact us</button>
+
+              <span class="text-teal-600 text-xs p-1"></span></a>
+      </div>
+  </div>
+</div>
+
+<div class="pt-2" style="background-color: #071952;">
+  <div class="flex pb-5 px-3 m-auto pt-5 border-t text-gray-800 text-sm flex-col
+    max-w-screen-lg items-center">
+      <div class="my-5" style="color: #088395;">© Copyright 2020. All Rights Reserved.</div>
+  </div>
+</div>
+
+<!-- Credit: Componentity.com -->
+
+
+  <!-- Add JavaScript here -->
+  <script src="https://unpkg.com/flowbite@1.4.1/dist/flowbite.js"></script>
+
+ 
+
+</body>
+
+</html>

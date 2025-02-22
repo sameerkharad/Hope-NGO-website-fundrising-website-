@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About us</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/static/js/script.js"></script>
+</head>
+<body style="background-color: #EBF4F6;;">
+    <!-- Navbar -->
+    <header class="flex justify-between items-center p-4  text-white" style="background-color:#071952">
+      <div class="text-lg font-bold">YourLOGO</div>
+      <nav class="hidden md:flex space-x-4">
+        <a href="/updatedindex" class="hover:text-gray-300">Home</a>
+        <a href="/aboutus" class="hover:text-gray-300">About</a>
+        <a href="/gallery" class="hover:text-gray-300">Gallery</a>
+        <a href="/services" class="hover:text-gray-300">Services</a>
+        <a href="/contact" class="hover:text-gray-300">Contact</a>
+      </nav>
+      <button id="hamburger-btn" class="md:hidden focus:outline-none" onclick="toggleMenu()">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+        </svg>
+      </button>
+  
+      <div id="mobile-menu" class="hidden absolute top-16 left-0 w-full bg-white shadow-md z-10">
+        <nav class="flex flex-col space-y-2 p-4 text-gray-700">
+          <a href="/updatedindex" class="block px-4 py-2 hover:bg-gray-100">Home</a>
+          <a href="/aboutus" class="block px-4 py-2 hover:bg-gray-100">About</a>
+          <a href="/gallery" class="block px-4 py-2 hover:bg-gray-100">Gallery</a>
+          <a href="/services" class="block px-4 py-2 hover:bg-gray-100">Services</a>
+          <a href="/contact" class="block px-4 py-2 hover:bg-gray-100">Contact</a>
+        </nav>
+      </div>
+  
+      <!-- Profile Icon with Dropdown -->
+      <div class="relative">
+        <button id="profile-btn" onclick="toggleDropdown()"
+          class="bg-gray-800 p-2 rounded-full focus:outline-none focus:ring-2 focus:ring-gray-300">
+          <!-- SVG for the user profile icon -->
+          <svg class="w-10 h-10 rounded-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="8" r="4"></circle>
+            <path d="M6 20c0-5 5-7 6-7s6 2 6 7"></path>
+          </svg>
+        </button>
+        <div id="profile-dropdown" class="hidden absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-10">
+          <ul class="py-2 text-gray-700">
+            <li id="user-display" class="block px-4 py-2 font-bold">
+              <!-- SVG for the user profile icon -->
+              <svg class="inline-block w-6 h-6 mr-2 text-gray-700" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="8" r="4"></circle>
+                <path d="M6 20c0-5 5-7 6-7s6 2 6 7"></path>
+              </svg>
+              Not logged in
+            </li>
+            <li>
+              <a href="/change-password" class="block px-4 py-2 hover:bg-gray-100">Settings</a>
+            </li>
+            <li>
+              <a href="/" class="block px-4 py-2 hover:bg-gray-100" onclick="logout()">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+  
+    </header>
+
+
+  <div class="flex flex-wrap">
+    <div class="w-full sm:w-8/12 mb-10">
+      <div class="container mx-auto h-full sm:p-10">
+        <nav class="flex px-4 justify-between items-center">
+          <div class="text-4xl font-bold" style="color: #071952;">
+            Hope<span class="" style="color: #088395;">.</span>
+          </div>
+          <div>
+            <img src="https://image.flaticon.com/icons/svg/497/497348.svg" alt="" class="w-8">
+          </div>
+        </nav>
+        <header class="container px-4 lg:flex mt-10 items-center h-full lg:mt-0">
+          <div class="w-full">
+            <h1 class="text-4xl lg:text-6xl font-bold" style="color: #071952;">About <span style="color: #088395;">us</span> </h1>
+            <div class="w-20 h-2 my-4 rounded-lg" style="background-color: #088395;"></div>
+            <p class="text-lg mb-10" style="color: #071952;">At Hope, we are dedicated to making a meaningful difference in the lives of underprivileged children. Our mission is to provide essential resources such as clothing, footwear, school supplies, and other necessities to those in need. Through our donation platform, generous individuals can contribute by donating items or supporting through monetary contributions.</p>
+          </div>
+        </header>
+      </div>
+    </div>
+    <img src="/static/img/about1.jpg" alt="Leafs" class="w-full h-48 object-cover sm:h-screen sm:w-4/12">
+  </div>
+
+  <div class="relative m-8 px-6 text-justify space-y-6  p-10 overflow-hidden">
+    <!-- Background Design -->
+    <div class="absolute top-0 left-0 w-32 h-32 bg-blue-500 rounded-full opacity-50 -z-10"></div>
+    <div class="absolute bottom-0 right-0 w-24 h-24 bg-grey-400 rounded-full opacity-50 -z-10"></div>
+    <div class="absolute top-10 right-10 w-10 h-10 bg-cyan-700 rounded-full opacity-30 -z-10"></div>
+    <div class="absolute bottom-10 left-10 w-40 h-40 bg-rose-700 rounded-full opacity-30 -z-10"></div>
+    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-40 h-40 bg-blue-50 rounded-full opacity-30 -z-10"></div>
+  
+    
+      <h2 class="text-4xl tracking-tight font-bold text-center" style="color: #088395;">We are here for you</h2>
+   
+    
+    <div class="w-36 h-2 mx-auto my-2 rounded-lg" style="background-color: #088395;"></div>
+  
+    <p class="text-sm leading-relaxed" style="color: #071952;">
+      We understand that every child deserves the right to education, warmth, and dignity. However, millions of children across the country lack access to proper footwear, school supplies, and clothing, which affects their daily lives and future prospects. Our donation platform enables compassionate individuals to make a difference by contributing items or offering financial support. Every donation, no matter how big or small, plays a vital role in transforming lives and bringing smiles to children.
+      <br><br>
+      To make the donation process convenient and accessible, we offer multiple options. Donors can choose to self-courier items, ensuring they reach our distribution centers safely. Alternatively, we provide a seamless pickup and drop service, allowing donors to contribute without hassle.
+      <br><br>
+      Our team ensures that all donated items are carefully sorted and distributed to children who need them the most. Additionally, for those who wish to contribute monetarily, our secure online payment system allows donors to support specific causes, including education kits, winter essentials, and more.
+      <br><br>
+      Every contribution directly impacts the well-being and future of these children. Whether it's a pair of shoes that helps a child walk comfortably to school or an education kit that fuels their academic journey, your support plays a crucial role in shaping their future. Through transparency and accountability, we ensure that all donations reach the right hands and make a tangible difference.
+      <br><br>
+      At <strong>Hope</strong>, we believe that small acts of kindness can create a ripple effect of change. By joining our mission, you become a part of a community that cares, uplifts, and inspires. Together, we can build a future where every child has the opportunity to grow, learn, and thrive. Your generosity fuels our efforts, and with your support, we can continue to bring hope to countless children in need.
+      <br><br>
+      Join us in spreading kindness and making a lasting impact. Together, we can create a world where no child is left behind.
+    </p>
+  </div>
+  
+  <div style="background-color: #071952;">
+    <div class="max-w-screen-lg px-4 sm:px-6 sm:grid md:grid-cols-4 sm:grid-cols-2 mx-auto text-center">
+        <div class="p-5">
+            <h3 class="font-bold text-xl tracking-tight" style="color: #088395;">Company Name</h3>
+        </div>
+        <div class="p-5">
+            <div class="text-sm uppercase  font-bold tracking-tight" style="color: #088395;">Resources</div>
+            <a class="my-3 block tracking-tight" href="/#" style="color: #088395;">Documentation <span class="text-xs p-1" style="color: #088395;"></span></a><a
+                class="my-3 block tracking-tight" href="/#" style="color: #088395;">Tutorials <span class="text-xs p-1" style="color: #088395;"></span></a><a
+                class="my-3 block tracking-tight" href="/#" style="color: #088395;">Support <span class=" text-xs p-1" style="color: #088395;">New</span></a>
+        </div>
+        <div class="p-5">
+            <div class="text-sm uppercase  font-bold" style="color: #088395;">Support</div>
+            <a class="my-3 block" href="/#" style="color: #088395;">Help Center <span class="text-teal-600 text-xs p-1"></span></a><a
+                class="my-3 block" href="/#" style="color: #088395;">Privacy Policy <span class="text-teal-600 text-xs p-1"></span></a><a
+                class="my-3 block" href="/#" style="color: #088395;">Conditions <span class="text-teal-600 text-xs p-1"></span></a>
+        </div>
+        <div class="p-5">
+            <div class="text-sm uppercase font-bold" style="color: #088395;">Contact us</div>
+            <a class="my-3 block" href="/#" style="color: #088395;">contact@Hope.com</a>
+            <button class="mt-6  px-6 py-3 rounded-md font-bold" style="background-color: #37B7C3; color:#071952;">Contact us</button>
+  
+                <span class="text-teal-600 text-xs p-1"></span></a>
+        </div>
+    </div>
+  </div>
+  
+  <div class="pt-2" style="background-color: #071952;">
+    <div class="flex pb-5 px-3 m-auto pt-5 border-t text-gray-800 text-sm flex-col
+      max-w-screen-lg items-center">
+        <div class="my-5" style="color: #088395;">© Copyright 2020. All Rights Reserved.</div>
+    </div>
+  </div>
+
+
+
+  <!-- Link external JavaScript -->
+  <script src="script.js" defer></script>
+</body>
+</html>

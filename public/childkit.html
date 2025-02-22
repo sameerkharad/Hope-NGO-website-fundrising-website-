@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate Education Kit</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex justify-center items-center min-h-screen p-6">
+
+    <div class="bg-white rounded-lg shadow-xl overflow-hidden max-w-4xl w-full flex flex-col md:flex-row">
+        <!-- Image Section -->
+        <div class="md:w-1/2 w-full">
+            <img class="w-full h-full object-cover" src="https://source.unsplash.com/600x500/?education,children" alt="Education Kit Donation">
+        </div>
+
+        <!-- Form Section -->
+        <div class="md:w-1/2 w-full p-8">
+            <h2 class="text-3xl font-bold text-center text-gray-800 mb-6">Donate an Education Kit</h2>
+            <form id="donationForm" class="space-y-4">
+                <div>
+                    <label class="block text-gray-700 font-medium">Full Name</label>
+                    <input type="text" name="name" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                </div>
+                <div>
+                    <label class="block text-gray-700 font-medium">Phone Number</label>
+                    <input type="tel" name="phone" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                </div>
+                <div>
+                    <label class="block text-gray-700 font-medium">Address</label>
+                    <textarea name="address" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
+                </div>
+                <div>
+                    <label class="block text-gray-700 font-medium">Pincode</label>
+                    <input type="text" name="pincode" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                </div>
+                <div>
+                    <label class="block text-gray-700 font-medium">Number of Kits</label>
+                    <input type="number" name="quantity" min="1" required class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                </div>
+                <button type="submit" class="w-full bg-indigo-600 text-white py-3 rounded-lg font-semibold hover:bg-indigo-700 transition duration-300">
+                    Proceed to Payment
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("donationForm").addEventListener("submit", async function (event) {
+            event.preventDefault();
+            const formData = new FormData(event.target);
+            const data = Object.fromEntries(formData.entries());
+            
+            const response = await fetch("/donate-education-kit", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify(data)
+            });
+
+            const result = await response.json();
+            if (result.url) {
+                window.location.href = result.url; 
+            } else {
+                alert("Error: Unable to create checkout session.");
+            }
+        });
+    </script>
+
+</body>
+</html>

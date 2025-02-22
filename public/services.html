@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/static/js/script.js"></script>
+    <title>Services</title>         
+</head>
+<body style="background-color: #EBF4F6;">
+   <!-- Navbar -->
+   <header class="flex justify-between items-center p-4  text-white" style="background-color:#071952">
+    <div class="text-lg font-bold">YourLOGO</div>
+    <nav class="hidden md:flex space-x-4">
+      <a href="/updatedindex" class="hover:text-gray-300">Home</a>
+      <a href="/aboutus" class="hover:text-gray-300">About</a>
+      <a href="/gallery" class="hover:text-gray-300">Gallery</a>
+      <a href="/services" class="hover:text-gray-300">Services</a>
+      <a href="/contact" class="hover:text-gray-300">Contact</a>
+    </nav>
+    <button id="hamburger-btn" class="md:hidden focus:outline-none" onclick="toggleMenu()">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+      </svg>
+    </button>
+
+    <div id="mobile-menu" class="hidden absolute top-16 left-0 w-full bg-white shadow-md z-10">
+      <nav class="flex flex-col space-y-2 p-4 text-gray-700">
+        <a href="/updatedindex" class="block px-4 py-2 hover:bg-gray-100">Home</a>
+        <a href="/aboutus" class="block px-4 py-2 hover:bg-gray-100">About</a>
+        <a href="/gallery" class="block px-4 py-2 hover:bg-gray-100">Gallery</a>
+        <a href="/services" class="block px-4 py-2 hover:bg-gray-100">Services</a>
+        <a href="/contact" class="block px-4 py-2 hover:bg-gray-100">Contact</a>
+      </nav>
+    </div>
+
+    <!-- Profile Icon with Dropdown -->
+    <div class="relative">
+      <button id="profile-btn" onclick="toggleDropdown()"
+        class="bg-gray-800 p-2 rounded-full focus:outline-none focus:ring-2 focus:ring-gray-300">
+        <!-- SVG for the user profile icon -->
+        <svg class="w-10 h-10 rounded-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="8" r="4"></circle>
+          <path d="M6 20c0-5 5-7 6-7s6 2 6 7"></path>
+        </svg>
+      </button>
+      <div id="profile-dropdown" class="hidden absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-10">
+        <ul class="py-2 text-gray-700">
+          <li id="user-display" class="block px-4 py-2 font-bold">
+            <!-- SVG for the user profile icon -->
+            <svg class="inline-block w-6 h-6 mr-2 text-gray-700" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="8" r="4"></circle>
+              <path d="M6 20c0-5 5-7 6-7s6 2 6 7"></path>
+            </svg>
+            Not logged in
+          </li>
+          <li>
+            <a href="/change-password" class="block px-4 py-2 hover:bg-gray-100">Settings</a>
+          </li>
+          <li>
+            <a href="/" class="block px-4 py-2 hover:bg-gray-100" onclick="logout()">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </header>
+
+
+  <div class="w-full p-4">
+    <div class="container mx-auto lg:overflow-hidden flex flex-col space-y-8 lg:space-y-0 lg:space-x-8 lg:flex-row items-center justify-center ">
+      <picture class="fade-in w-full max-w-[500px]">
+        <img src="/static/img/donate1.jpg" class="w-full rounded-full shadow-2xl flex-none aspect-square mr-4" />
+      </picture>
+      <div class="flex-1">
+        <div class="text-wrapper w-full text-gray-700 dark:text-white text-center lg:text-left">
+          <p class="uppercase text-lg font-bold mb-2 lg:mb-4 slide-in-right fade-in" style="color:#071952;">Hope <span style="color: #088395;">.</span></p>
+          <p class="whitespace-nowrap text-3xl lg:text-5xl font-bold mb-4 lg:mb-8 max-w-sm slide-in-right fade-in" style="color: #088395;">Donation</p>
+          <p class="text-lg slide-in-right fade-in" style="color: #071952;">
+            Your small act of kindness can bring warmth, comfort, and hope to underprivileged children. By donating clothes, footwear, school accessories, and other essentials, you help brighten a child's future.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+
+  <div class="m-8 p-6 text-center text-lg" style="color: #071952;">
+    <p> Support our cause with a financial contribution, as every penny goes towards providing essential items to those in need. You can also donate by sending items directly to us through our self-courier option, ensuring they reach our distribution centers safely. For added convenience, we offer a pickup and drop service, allowing you to contribute without hassle. Together, we can create a world where no child suffers due to a lack of basic necessities. 💙 Donate Today!
+
+
+
+
+
+
+    </p>
+      
+  </div>
+
+<!-- services  -->
+<div class="flex flex-col md:flex-row items-center justify-between w-full min-h-screen bg-gradient-to-br from-purple-100 to-indigo-200 p-6 py-10">
+  
+  <!-- Left Side - Text -->
+  <div class="md:w-1/2 w-full p-6">
+    <h2 class="text-3xl font-bold mb-4" style="color: #088395;">Your donation can change lives!</h2>
+    <p class=" text-lg mb-6" style="color: #071952;">
+      Many children lack clothing, school supplies, and footwear. Your help provides them warmth, education, and hope.
+    </p>
+    <a href="/moneyform" class="inline-block px-6 py-3  text-white font-semibold rounded-full transition duration-300 shadow-xl" style="background-color: #088395; color:#071952;">
+      Donate Now
+    </a>
+  </div>
+
+  <!-- Right Side - Image -->
+ <div class="md:w-1/2 w-full flex">
+  <img class="w-full h-full object-cover rounded-lg shadow-xl" src="/static/img/pexels-ifenacho-solomon-285180192-13162766.jpg" alt="Donation Image">
+</div>
+
+
+</div>
+
+
+<div class="flex flex-col md:flex-row-reverse items-center justify-between w-full min-h-screen bg-gradient-to-br from-purple-100 to-indigo-200 p-6">
+  
+  <!-- Right Side - Text -->
+  <div class="md:w-1/2 w-full p-6">
+    <h2 class="text-3xl font-bold mb-4" style="color: #088395;">Providing essential footwear</h2>
+    <p class="text-lg mb-6" style="color: #071952;">
+      Donating shoes ensures comfort, dignity, and mobility for those in need, helping them step toward a better future.
+    </p>
+    <a href="/footwareblanket" class="inline-block px-6 py-3  font-semibold rounded-full transition duration-300" style="background-color: #088395; color: #071952;">
+      Donate Now
+    </a>
+  </div>
+
+  <!-- Left Side - Image -->
+  <div class="md:w-1/2 w-full">
+    <img class="w-full h-auto object-cover rounded-lg shadow-xl" src="/static/img/pexels-olanrewaju-mark-1673445181-28098782.jpg" alt="Footwear Donation">
+  </div>
+
+</div>
+
+
+<div class="flex flex-col md:flex-row items-center justify-between w-full min-h-screen bg-gradient-to-br from-purple-100 to-indigo-200 p-6">
+  
+  <!-- Left Side - Text -->
+  <div class="md:w-1/2 w-full p-6">
+    <h2 class="text-3xl font-bold mb-4" style="color: #088395;">Your donation can change lives!</h2>
+    <p class="text-lg mb-6" style="color: #071952;">
+      Many children lack clothing, school supplies, and footwear. Your help provides them warmth, education, and hope.
+    </p>
+    <a href="/childkit" class="inline-block px-6 py-3 font-semibold rounded-full shadow-2xl transition duration-300" style="background-color: #088395; color: #071952;">
+      Donate Now
+    </a>
+  </div>
+
+  <!-- Right Side - Image -->
+  <div class="md:w-1/2 w-full">
+    <img class="w-full h-auto object-cover rounded-lg shadow-xl" src="/static/img/pexels-112-uttar-pradesh-2709195-14075587.jpg" alt="Donation Image">
+  </div>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/static/js/script.js"></script>
+    <title>Donate Footwear & Blankets</title>
+</head>
+<body>
+       <!-- Navbar -->
+   <header class="flex justify-between items-center p-4  text-white" style="background-color: #4682A9;">
+    <div class="text-lg font-bold">YourLOGO</div>
+    <nav class="hidden md:flex space-x-4">
+      <a href="/updatedindex" class="hover:text-gray-300">Home</a>
+      <a href="/aboutus" class="hover:text-gray-300">About</a>
+      <a href="/gallery" class="hover:text-gray-300">Gallery</a>
+      <a href="/services" class="hover:text-gray-300">Services</a>
+      <a href="/contact" class="hover:text-gray-300">Contact</a>
+    </nav>
+    <button id="hamburger-btn" class="md:hidden focus:outline-none" onclick="toggleMenu()">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+      </svg>
+    </button>
+
+    <div id="mobile-menu" class="hidden absolute top-16 left-0 w-full bg-white shadow-md z-10">
+      <nav class="flex flex-col space-y-2 p-4 text-gray-700">
+        <a href="/updatedindex" class="block px-4 py-2 hover:bg-gray-100">Home</a>
+        <a href="/aboutus" class="block px-4 py-2 hover:bg-gray-100">About</a>
+        <a href="/gallery" class="block px-4 py-2 hover:bg-gray-100">Gallery</a>
+        <a href="/services" class="block px-4 py-2 hover:bg-gray-100">Services</a>
+        <a href="/contact" class="block px-4 py-2 hover:bg-gray-100">Contact</a>
+      </nav>
+    </div>
+
+    <!-- Profile Icon with Dropdown -->
+    <div class="relative">
+      <button id="profile-btn" onclick="toggleDropdown()"
+        class="bg-gray-800 p-2 rounded-full focus:outline-none focus:ring-2 focus:ring-gray-300">
+        <!-- SVG for the user profile icon -->
+        <svg class="w-10 h-10 rounded-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="8" r="4"></circle>
+          <path d="M6 20c0-5 5-7 6-7s6 2 6 7"></path>
+        </svg>
+      </button>
+      <div id="profile-dropdown" class="hidden absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-10">
+        <ul class="py-2 text-gray-700">
+          <li id="user-display" class="block px-4 py-2 font-bold">
+            <!-- SVG for the user profile icon -->
+            <svg class="inline-block w-6 h-6 mr-2 text-gray-700" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="8" r="4"></circle>
+              <path d="M6 20c0-5 5-7 6-7s6 2 6 7"></path>
+            </svg>
+            Not logged in
+          </li>
+          <li>
+            <a href="/change-password" class="block px-4 py-2 hover:bg-gray-100">Settings</a>
+          </li>
+          <li>
+            <a href="/" class="block px-4 py-2 hover:bg-gray-100" onclick="logout()">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </header>
+    
+    <div class="bg-white  rounded-none overflow-hidden w-full min-h-screen flex flex-col md:flex-row">
+        
+        <!-- Left Image Section -->
+        <div class="md:w-1/2">
+            <img src="/static/img/money.jpg" alt="Donation Image" class="w-full h-full object-cover">
+        </div>
+
+        <!-- Right Form Section -->
+        <div class="md:w-1/2 w-full p-6 md:p-10 flex flex-col justify-center">
+            <h2 class="text-3xl font-bold text-gray-800 mb-4 text-center">Donate Footwear & Blankets</h2>
+            <div class="border-t-4 border-blue-400 w-16 mb-6 mx-auto"></div>
+
+            <form id="donationForm" class="space-y-4">
+                
+                <!-- User Details -->
+                <input type="text" id="donorName" placeholder="Full Name" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none" required>
+                
+                <input type="tel" id="donorPhone" placeholder="Phone Number" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none" required>
+                
+                <input type="text" id="donorAddress" placeholder="Full Address" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none" required>
+                
+                <input type="text" id="donorPincode" placeholder="Pincode" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none" required>
+
+                <!-- Donation Selection -->
+                <div class="space-y-2">
+                    <label class="flex items-center space-x-2">
+                        <input type="checkbox" id="donateFootwear" class="form-checkbox h-5 w-5 text-blue-600">
+                        <span class="text-gray-700">Donate Footwear (₹500 each)</span>
+                    </label>
+                    <input type="number" id="footwearQuantity" placeholder="Number of Footwear" min="1" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none hidden">
+
+                    <label class="flex items-center space-x-2">
+                        <input type="checkbox" id="donateBlanket" class="form-checkbox h-5 w-5 text-blue-600">
+                        <span class="text-gray-700">Donate Blanket (₹450 each)</span>
+                    </label>
+                    <input type="number" id="blanketQuantity" placeholder="Number of Blankets" min="1" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none hidden">
+                </div>
+
+                <!-- Donate Button -->
+                <button type="submit" class="w-full px-4 py-3 bg-blue-400 text-white font-semibold rounded-lg shadow-md hover:bg-blue-300 transition duration-300">
+                    Donate Now
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Show/hide quantity fields based on checkbox selection
+        document.getElementById("donateFootwear").addEventListener("change", function () {
+            const footwearQty = document.getElementById("footwearQuantity");
+            footwearQty.classList.toggle("hidden", !this.checked);
+            if (!this.checked) footwearQty.value = ""; // Clear value when unchecked
+        });
+    
+        document.getElementById("donateBlanket").addEventListener("change", function () {
+            const blanketQty = document.getElementById("blanketQuantity");
+            blanketQty.classList.toggle("hidden", !this.checked);
+            if (!this.checked) blanketQty.value = ""; // Clear value when unchecked
+        });
+    
+        // Handle donation form submission
+        document.getElementById("donationForm").addEventListener("submit", async function (event) {
+            event.preventDefault();
+    
+            const name = document.getElementById("donorName").value.trim();
+            const phone = document.getElementById("donorPhone").value.trim();
+            const address = document.getElementById("donorAddress").value.trim();
+            const pincode = document.getElementById("donorPincode").value.trim();
+    
+            const footwearChecked = document.getElementById("donateFootwear").checked;
+            const blanketChecked = document.getElementById("donateBlanket").checked;
+    
+            const footwearQuantity = footwearChecked ? parseInt(document.getElementById("footwearQuantity").value) || 0 : 0;
+            const blanketQuantity = blanketChecked ? parseInt(document.getElementById("blanketQuantity").value) || 0 : 0;
+    
+            // Phone number validation: must be exactly 10 digits
+            if (!/^\d{10}$/.test(phone)) {
+                alert("Please enter a valid 10-digit phone number.");
+                return;
+            }
+    
+            // Address validation: must be at least 3 meaningful characters
+            if (!/^[A-Za-z0-9\s,.#-]{3,}$/.test(address)) {
+                alert("Please enter a valid address (at least 3 characters).");
+                return;
+            }
+    
+            // Ensure at least one donation is selected
+            if (!footwearChecked && !blanketChecked) {
+                alert("Please select at least one donation option.");
+                return;
+            }
+    
+            // Ensure at least one valid quantity is entered
+            if ((footwearChecked && footwearQuantity <= 0) || (blanketChecked && blanketQuantity <= 0)) {
+                alert("Please enter a valid quantity for your selected donation.");
+                return;
+            }
+    
+            try {
+                const response = await fetch("http://localhost:8000/create-footwear-blanket-checkout", {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({
+                        footwear_count: footwearQuantity,
+                        blanket_count: blanketQuantity,
+                    }),
+                });
+    
+                const data = await response.json();
+                if (data.checkout_url) {
+                    window.location.href = data.checkout_url; // Redirect to Stripe Checkout
+                } else {
+                    alert("Error processing donation.");
+                }
+            } catch (error) {
+                console.error("Error:", error);
+                alert("An error occurred. Please try again.");
+            }
+        });
+    </script>
+    
+
+</body>
+</html>

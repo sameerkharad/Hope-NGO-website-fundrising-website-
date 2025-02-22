@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment Canceled</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex items-center justify-center h-screen bg-gray-100">
+    <div class="bg-white p-8 rounded-lg shadow-lg text-center">
+        <!-- Cancel Icon -->
+        <div class="flex justify-center">
+            <svg class="w-16 h-16 text-red-600" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <line x1="15" y1="9" x2="9" y2="15"></line>
+                <line x1="9" y1="9" x2="15" y2="15"></line>
+            </svg>
+        </div>
+        <h1 class="text-3xl font-bold text-red-600 mt-4">Payment Canceled</h1>
+        <p class="mt-4 text-gray-600">Your payment was not completed. You can retry or return to the homepage.</p>
+        <div class="mt-6 space-x-4">
+            <a href="/services" class="px-6 py-2  text-white rounded-md items-center justify-center gap-2 + inline-flex bg-green-600 hover:bg-green-700">
+                <!-- Retry Icon -->
+                <svg class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="23 4 23 10 17 10"></polyline>
+                    <path d="M20.49 15A9 9 0 1 1 7.38 3.62L23 10"></path>
+                </svg>
+                Go to donation
+            </a>
+            <a href="/updatedindex" class="px-6 py-2 bg-gray-600 text-white rounded-md  items-center justify-center gap-2 hover:bg-gray-700 inline-flex">
+                <!-- Home Icon -->
+                <svg class="w-5 h-5 text-white" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M3 9L12 2l9 7"></path>
+                    <path d="M9 22V12H15V22"></path>
+                    <path d="M2 22H22"></path>
+                </svg>
+                Go Home
+            </a>
+        </div>
+    </div>
+</body>
+</html>

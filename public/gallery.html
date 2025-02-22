@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="/static/js/script.js"></script>
+    <title>Gallery</title>
+
+</head>
+<body>
+     <!-- Navbar -->
+     <header class="flex justify-between items-center p-4  text-white" style="background-color: #4682A9;">
+        <div class="text-lg font-bold">YourLOGO</div>
+        <nav class="hidden md:flex space-x-4">
+          <a href="/updatedindex" class="hover:text-gray-300">Home</a>
+          <a href="/aboutus" class="hover:text-gray-300">About</a>
+          <a href="/gallery" class="hover:text-gray-300">Gallery</a>
+          <a href="/services" class="hover:text-gray-300">Services</a>
+          <a href="/contact" class="hover:text-gray-300">Contact</a>
+        </nav>
+        <button id="hamburger-btn" class="md:hidden focus:outline-none" onclick="toggleMenu()">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+          </svg>
+        </button>
+    
+        <div id="mobile-menu" class="hidden absolute top-16 left-0 w-full bg-white shadow-md z-10">
+          <nav class="flex flex-col space-y-2 p-4 text-gray-700">
+            <a href="/updatedindex" class="block px-4 py-2 hover:bg-gray-100">Home</a>
+            <a href="/aboutus" class="block px-4 py-2 hover:bg-gray-100">About</a>
+            <a href="/gallery" class="block px-4 py-2 hover:bg-gray-100">Gallery</a>
+            <a href="/services" class="block px-4 py-2 hover:bg-gray-100">Services</a>
+            <a href="/contact" class="block px-4 py-2 hover:bg-gray-100">Contact</a>
+          </nav>
+        </div>
+    
+        <!-- Profile Icon with Dropdown -->
+        <div class="relative">
+          <button id="profile-btn" onclick="toggleDropdown()"
+            class="bg-gray-800 p-2 rounded-full focus:outline-none focus:ring-2 focus:ring-gray-300">
+            <!-- SVG for the user profile icon -->
+            <svg class="w-10 h-10 rounded-full" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="8" r="4"></circle>
+              <path d="M6 20c0-5 5-7 6-7s6 2 6 7"></path>
+            </svg>
+          </button>
+          <div id="profile-dropdown" class="hidden absolute right-0 mt-2 w-48 bg-white rounded-md shadow-lg z-10">
+            <ul class="py-2 text-gray-700">
+              <li id="user-display" class="block px-4 py-2 font-bold">
+                <!-- SVG for the user profile icon -->
+                <svg class="inline-block w-6 h-6 mr-2 text-gray-700" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"
+                  fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="8" r="4"></circle>
+                  <path d="M6 20c0-5 5-7 6-7s6 2 6 7"></path>
+                </svg>
+                Not logged in
+              </li>
+              <li>
+                <a href="/change-password" class="block px-4 py-2 hover:bg-gray-100">Settings</a>
+              </li>
+              <li>
+                <a href="/" class="block px-4 py-2 hover:bg-gray-100" onclick="logout()">Logout</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+    
+      </header>
+
+
+
+  <div class="bg-gray-100">
+    <div class="container mx-auto px-4 py-8">
+        <h1 class="text-4xl font-bold text-center mb-8">Bento Grid Layout with Images</h1>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+            <!-- Large item -->
+            <div class="md:col-span-2 md:row-span-2 relative overflow-hidden rounded-2xl shadow-lg group">
+                <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHwxfHxuYXR1cmV8ZW58MHwwfHx8MTcyMTA0MjYwMXww&ixlib=rb-4.0.3&q=80&w=1080" alt="Nature" class="w-full h-full object-cover">
+                <div
+                    class="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div class="absolute bottom-0 left-0 right-0 p-4">
+                        <h3 class="text-2xl font-bold text-white">Explore Nature</h3>
+                        <p class="text-white">Discover the beauty of the natural world</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Two small items -->
+            <div class="relative overflow-hidden rounded-2xl shadow-lg group">
+                <img src="https://images.unsplash.com/photo-1493770348161-369560ae357d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHw2fHxmb29kfGVufDB8MHx8fDE3MjEwNDI2MTR8MA&ixlib=rb-4.0.3&q=80&w=1080" alt="Food" class="w-full h-48 object-cover">
+                <div
+                    class="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div class="absolute bottom-0 left-0 right-0 p-4">
+                        <h4 class="text-xl font-bold text-white">Culinary Delights</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="relative overflow-hidden rounded-2xl shadow-lg group">
+                <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHw1fHx0ZWNobm9sb2d5fGVufDB8MHx8fDE3MjEwNDI2Mjh8MA&ixlib=rb-4.0.3&q=80&w=1080" alt="Technology" class="w-full h-48 object-cover">
+                <div
+                    class="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div class="absolute bottom-0 left-0 right-0 p-4">
+                        <h4 class="text-xl font-bold text-white">Tech Innovations</h4>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Three medium items -->
+            <div class="relative overflow-hidden rounded-2xl shadow-lg group">
+                <img src="https://images.unsplash.com/photo-1503220317375-aaad61436b1b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHw1fHx0cmF2ZWx8ZW58MHwwfHx8MTcyMTA0MjY0MXww&ixlib=rb-4.0.3&q=80&w=1080" alt="Travel" class="w-full h-48 object-cover">
+                <div
+                    class="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div class="absolute bottom-0 left-0 right-0 p-4">
+                        <h4 class="text-xl font-bold text-white">Travel Adventures</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="relative overflow-hidden rounded-2xl shadow-lg group">
+                <img src="https://images.unsplash.com/photo-1513364776144-60967b0f800f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHwxfHxhcnR8ZW58MHwwfHx8MTcyMTA0MjY5Nnww&ixlib=rb-4.0.3&q=80&w=1080" alt="Art" class="w-full h-48 object-cover">
+                <div
+                    class="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div class="absolute bottom-0 left-0 right-0 p-4">
+                        <h4 class="text-xl font-bold text-white">Artistic Expressions</h4>
+                    </div>
+                </div>
+            </div>
+
+            <!-- bottom cards -->
+            <div class="relative overflow-hidden rounded-2xl shadow-lg group">
+                <img src="https://images.unsplash.com/photo-1530549387789-4c1017266635?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHwyfHxzd2ltbWluZ3xlbnwwfDB8fHwxNzIxMDQzMjkxfDA&ixlib=rb-4.0.3&q=80&w=1080" alt="Sport" class="w-full h-48 object-cover">
+                <div
+                    class="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div class="absolute bottom-0 left-0 right-0 p-4">
+                        <h4 class="text-xl font-bold text-white">Swimming</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="relative overflow-hidden rounded-2xl shadow-lg group">
+                <img src="https://images.unsplash.com/photo-1611195974226-a6a9be9dd763?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHwxMnx8Y2hlc3N8ZW58MHwwfHx8MTcyMTA0MzI0Nnww&ixlib=rb-4.0.3&q=80&w=1080" alt="Sport" class="w-full h-48 object-cover">
+                <div
+                    class="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div class="absolute bottom-0 left-0 right-0 p-4">
+                        <h4 class="text-xl font-bold text-white">Chess</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="relative overflow-hidden rounded-2xl shadow-lg group">
+                <img src="https://images.unsplash.com/photo-1553778263-73a83bab9b0c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHw1fHxmb290YmFsbHxlbnwwfDB8fHwxNzIxMDQzMjExfDA&ixlib=rb-4.0.3&q=80&w=1080" alt="Sport" class="w-full h-48 object-cover">
+                <div
+                    class="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div class="absolute bottom-0 left-0 right-0 p-4">
+                        <h4 class="text-xl font-bold text-white">Football</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="relative overflow-hidden rounded-2xl shadow-lg group">
+                <img src="https://images.unsplash.com/photo-1624526267942-ab0ff8a3e972?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w0NzEyNjZ8MHwxfHNlYXJjaHw3fHxjcmlja2V0fGVufDB8MHx8fDE3MjEwNDMxNTh8MA&ixlib=rb-4.0.3&q=80&w=1080" alt="Sport" class="w-full h-48 object-cover">
+                <div
+                    class="absolute inset-0 bg-black bg-opacity-60 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div class="absolute bottom-0 left-0 right-0 p-4">
+                        <h4 class="text-xl font-bold text-white">Cricket</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+
+
+
+<!-- More gallery -->
+
+<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+<section class="bg-white py-20">
+ <div class="max-w-screen-xl 2xl:max-w-screen-2xl px-8 md:px-12 mx-auto py-12 lg:py-24 space-y-24 flex flex-col justify-center lg:h-screen">
+  <!-- Starts component -->
+  <div class="grid grid-cols-1 gap-2 mt-12 list-none md:grid-cols-3 lg:mt-24 max-w-5xl mx-auto" role="list">
+   <!---
+            // Loop through the features array to render each feature dynamically.
+            //
+            // Apply dynamic background color using the bgColor property from the feature object. Also, make the background slightly transparent on hover to
+            // reveal the background image more clearly.
+            //
+            // The title's color changes on hover, using the titleColor property from the feature object. This demonstrates how to dynamically apply Tailwind
+            // CSS classes based on component state or properties.
+            //
+            //  {String(index + 1).padStart(2, "0") + "⏤"} Converts the current index (from iterating over the features array) to a string and adds 1 to it,
+            // and adds a dash at the end of the number
+            -->
+   <article class="mx-auto  shadow-xl bg-cover bg-center min-h-150 relative border-8 border-black  transform duration-500 hover:-translate-y-12   group" style="background-image: url('https://i.pinimg.com/736x/2b/74/7b/2b747b71b782a8833f2b3ad9b0e37cd1.jpg');">
+    <div class="bg-black relative h-full group-hover:bg-opacity-0 min-h-150  flex flex-wrap flex-col pt-[30rem] hover:bg-opacity-75 transform duration-300">
+     <div class=" bg-blue-400 p-8 h-full justify-end flex flex-col">
+      <h1 class="text-white mt-2 text-xl mb-5 transform  translate-y-20 uppercase group-hover:translate-y-0 duration-300 group-hover:text-orange-500"> 01⏤ Experience </h1>
+      <p class="opacity-0 text-white text-xl group-hover:opacity-80 transform duration-500 "> Crafting an effortless journey with user-first. </p>
+     </div>
+    </div>
+   </article>
+   <article class="mx-auto  shadow-xl bg-cover bg-center min-h-150 relative border-8 border-black  transform duration-500 hover:-translate-y-12   group" style="background-image: url('https://i.pinimg.com/564x/3c/c2/6c/3cc26c0140c2f0dc70d8aa48416c41dc.jpg');">
+    <div class="bg-black relative h-full group-hover:bg-opacity-0 min-h-150  flex flex-wrap flex-col pt-[30rem] hover:bg-opacity-75 transform duration-300">
+     <div class=" bg-black p-8 h-full justify-end flex flex-col">
+      <h1 class="text-white mt-2 text-xl mb-5 transform  translate-y-20 uppercase group-hover:translate-y-0 duration-300 group-hover:text-indigo-400"> 02⏤ Interaction </h1>
+      <p class="opacity-0 text-white text-xl group-hover:opacity-80 transform duration-500 "> Our platform is designed for simplicity and ease. </p>
+     </div>
+    </div>
+   </article>
+   <article class="mx-auto  shadow-xl bg-cover bg-center min-h-150 relative border-8 border-black  transform duration-500 hover:-translate-y-12   group" style="background-image: url('https://i.pinimg.com/564x/fa/4f/cf/fa4fcfd2db636f98eb0f2b5aecce0c28.jpg');">
+    <div class="bg-black relative h-full group-hover:bg-opacity-0 min-h-150  flex flex-wrap flex-col pt-[30rem] hover:bg-opacity-75 transform duration-300">
+     <div class=" bg-black p-8 h-full justify-end flex flex-col">
+      <h1 class="text-white mt-2 text-xl mb-5 transform  translate-y-20 uppercase group-hover:translate-y-0 duration-300 group-hover:text-cyan-400"> 03⏤ Design </h1>
+      <p class="opacity-0 text-white text-xl group-hover:opacity-80 transform duration-500 "> Our design philosophy centers around the user. </p>
+     </div>
+    </div>
+   </article>
+  </div> <!-- ends component -->
+  <!-- Starts links to tutorial -->
+ 
+ </div>
+</section>
+</body>
+</html>
